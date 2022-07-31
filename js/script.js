@@ -1,10 +1,18 @@
-let number = 5;
-const leftBorderWidth = 1;
-number = 10;
-console.log(number);
-const obj = {
-    a: 50
+const numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
+var personalMovieDB = {
+    count: numberOfFilms,
+    movies: {
+        
+    },
+    actors: {
+
+    },
+    genres: [],
+    privat: false
 };
-obj.a = 10;
-console.log(obj);
-obj.a = 5;
+var lastSeenMovie = prompt("Один из последних просмотренных фильмов?", "");
+personalMovieDB.movies[lastSeenMovie] = prompt("На сколько оцените его?", "");
+lastSeenMovie = prompt("Один из последних просмотренных фильмов?", "");
+personalMovieDB.movies[lastSeenMovie] = prompt("На сколько оцените его?", "");
+console.log(personalMovieDB.count);
+console.log(personalMovieDB.movies);
