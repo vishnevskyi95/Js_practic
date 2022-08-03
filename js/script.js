@@ -1,4 +1,11 @@
-const numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
+let numberOfFilms;
+function start() {
+    numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
+    while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
+        numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
+    }
+}
+start();
 var personalMovieDB = {
     count: numberOfFilms,
     movies: {
@@ -10,8 +17,15 @@ var personalMovieDB = {
     genres: [],
     privat: false
 };
+function showMyDB() {
+    if (!personalMovieDB.privat) {
+        console.log(personalMovieDB);
+    }
+}
+showMyDB();
 // Первый способ
-var lastSeenMovie = '',
+function rememberMyFilms() {
+    var lastSeenMovie = '',
     ratingMovie = '';
 for (let i = 0; i < 2;) {
     lastSeenMovie = prompt("Один из последних просмотренных фильмов?", "");
@@ -23,6 +37,8 @@ for (let i = 0; i < 2;) {
         }
     }
 }
+}
+rememberMyFilms();
 // Второй способ
 /* for (let i = 0; i < 2;) {
    var lastSeenMovie = prompt("Один из последних просмотренных фильмов?", ""),
@@ -35,7 +51,10 @@ for (let i = 0; i < 2;) {
 } */
 console.log(personalMovieDB.count);
 console.log(personalMovieDB.movies);
-if (personalMovieDB.count < 10 && personalMovieDB.count > 0) {
+
+
+function checkMyPersonalLevel() {
+    if (personalMovieDB.count < 10 && personalMovieDB.count > 0) {
     console.log("Посмотрено довольно мало фильмов");
 } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
     console.log("Вы класический зритель");
@@ -44,6 +63,18 @@ if (personalMovieDB.count < 10 && personalMovieDB.count > 0) {
 } else {
     console.log("Произошла ошибка");
 }
+}
+checkMyPersonalLevel();
+function writeYourGenres() {
+    for (let i = 0; i < 3; ){
+        let favouriteGenre = prompt(`Ваш любимый жанр под номером ${i+1}`, '');
+        if (favouriteGenre != '' && favouriteGenre != null) {
+            personalMovieDB.genres[i] = favouriteGenre;
+            i++;
+        }
+    }
+}
+writeYourGenres();
 
 
 
@@ -117,7 +148,7 @@ for (let i = 0; i <= lines; i++){ //колво рядов
     result += "\n";
 }
 console.log(result); */
-function returnNeighboringNumbers(num) {
+/* function returnNeighboringNumbers(num) {
     let arr = [num - 1, num, num + 1];
     return arr;
 }
@@ -136,4 +167,4 @@ function getMathResult(base, iter) {
         return result; 
     }
 }
-console.log(getMathResult(10, 0));
+console.log(getMathResult(10, 0)); */
